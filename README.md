@@ -8,7 +8,7 @@ My build of berry wm.
 
 ![Screenshot](preview/screenshot.png)
 
-## Changes over original
+## Changes over the original
 * `next_workspace` and `previous_workspace` commands.
 
 # Usage
