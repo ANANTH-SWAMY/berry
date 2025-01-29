@@ -24,6 +24,8 @@ enum IPCCommand
     IPCBorderWidth,
     IPCInnerBorderWidth,
     IPCTitleHeight,
+    IPCNextWorkspace,
+    IPCPreviousWorkspace,
     IPCSwitchWorkspace,
     IPCSendWorkspace,
     IPCFullscreen,

@@ -114,6 +114,8 @@ static void ipc_resize_relative(long *d);
 static void ipc_toggle_decorations(long *d);
 static void ipc_window_close(long *d);
 static void ipc_window_center(long *d);
+static void ipc_next_ws();
+static void ipc_previous_ws();
 static void ipc_switch_ws(long *d);
 static void ipc_send_to_ws(long *d);
 static void ipc_fullscreen(long *d);
@@ -186,6 +188,8 @@ static const ipc_event_handler_t ipc_handler [IPCLast] = {
     [IPCWindowToggleDecorations]  = ipc_toggle_decorations,
     [IPCWindowClose]              = ipc_window_close,
     [IPCWindowCenter]             = ipc_window_center,
+    [IPCNextWorkspace]            = ipc_next_ws,
+    [IPCPreviousWorkspace]        = ipc_previous_ws,
     [IPCSwitchWorkspace]          = ipc_switch_ws,
     [IPCSendWorkspace]            = ipc_send_to_ws,
     [IPCFullscreen]               = ipc_fullscreen,
@@ -990,6 +994,28 @@ ipc_window_center(long *d)
     if (f_client == NULL)
         return;
     client_center(f_client);
+}
+
+static void
+ipc_next_ws()
+{
+	int next_ws = curr_ws + 1;
+	if (next_ws > WORKSPACE_NUMBER - 1)
+		next_ws = 0;
+
+    LOGP("IPC says switch to workspace %d", next_ws);
+	switch_ws(next_ws);
+}
+
+static void
+ipc_previous_ws()
+{
+	int previous_ws = curr_ws - 1;
+	if (previous_ws < 0)
+		previous_ws = WORKSPACE_NUMBER - 1;
+
+    LOGP("IPC says switch to workspace %d", previous_ws);
+	switch_ws(previous_ws);
 }
 
 static void
