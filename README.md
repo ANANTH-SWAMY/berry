@@ -4,7 +4,7 @@
 
 A healthy, bite-sized window manager written in C over the XLib library.
 
-My build of berrywm.
+My build of berry wm.
 
 ![Screenshot](preview/screenshot.png)
 
