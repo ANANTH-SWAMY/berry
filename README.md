@@ -6,7 +6,7 @@ A healthy, bite-sized window manager written in C over the XLib library.
 
 My build of berrywm.
 
-![Screenshot](review/screenshot.png)
+![Screenshot](preview/screenshot.png)
 
 ## Changes over original
 * `next_workspace` and `previous_workspace` commands.
